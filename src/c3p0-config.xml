@@ -1,0 +1,31 @@
+<c3p0-config>
+	<!-- 默认配置，如果没有指定则使用这个配置 -->
+	<default-config>
+		<property name="idleConnectionTestPeriod">30</property>
+		<property name="initialPoolSize">10</property>
+		<property name="maxIdleTime">30</property>
+		<property name="maxPoolSize">100</property>
+		<property name="minPoolSize">10</property>
+		<property name="maxStatements">0</property>
+		<user-overrides user="test-user">
+			<property name="maxPoolSize">10</property>
+			<property name="minPoolSize">1</property>
+			<property name="maxStatements">0</property>
+			<property name="testConnectionOnCheckin">true</property>
+		</user-overrides>
+	</default-config>
+	<!-- 命名的配置 -->
+	<named-config name="search">
+		<!-- 如果池中数据连接不够时一次增长多少个 -->
+		<property name="acquireIncrement">5</property>
+		<property name="initialPoolSize">5</property>
+		<property name="minPoolSize">5</property>
+		<property name="maxPoolSize">200</property>
+		<property name="maxIdleTime">60</property>
+		<property name="maxStatements">0</property>
+		<property name="maxStatementsPerConnection">100</property>
+        <property name="acquireRetryAttempts">10</property>
+        <property name="acquireRetryDelay">1000</property>
+        <property name="idleConnectionTestPeriod">60</property>
+	</named-config>
+</c3p0-config> 
